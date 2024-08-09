@@ -17,7 +17,7 @@ const UserItem = ({ user, updateUsers }) => {
       last_name: lastName,
       email: email,
     });
-    setOpenModal(false)
+    setOpenModal(false);
   };
 
   //   const [formData, setFormData] = useState({
@@ -68,30 +68,30 @@ const UserItem = ({ user, updateUsers }) => {
             <div className="edit_header">
               <h2>Edit users</h2>
             </div>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="First Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last Name"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <button type="submit">Update User</button>
-              </form>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button type="submit">Update User</button>
+            </form>
           </div>
         </Modal>
       )}
