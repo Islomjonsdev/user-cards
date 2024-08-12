@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Modal from "../Modal/Modal";
 import UserItem from "../UserItem/UserItem";
 import "./UserList.scss";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
+  const [openAddUserPopup, setOpenAddUserPopup] = useState(false);
   useEffect(() => {
     axios
       .get("https://reqres.in/api/users")
@@ -40,13 +42,23 @@ const UserList = () => {
       <div className="user_list">
         <div className="container">
           <h1>User Cards</h1>
-          <div className="user_list_blog">
-            {users?.map((user, index) => (
-              <UserItem key={index} user={user} updateUsers={updateUsers} />
-            ))}
+          <div className="user_list_wrapper">
+            <button onClick={() => setOpenAddUserPopup(true)}>
+              Add user cards
+            </button>
+            <div className="user_list_blog">
+              {users?.map((user, index) => (
+                <UserItem key={index} user={user} updateUsers={updateUsers} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
+      {openAddUserPopup && (
+        <Modal close={setOpenAddUserPopup}>
+          <div>Open user modal</div>
+        </Modal>
+      )}
     </>
   );
 };
